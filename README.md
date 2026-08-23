@@ -207,10 +207,10 @@ shortest connection path between any two people.
 
 ![Directory view listing people, search and skill filter](docs/screenshots/ui-directory.png)
 
-**Person profile view**
+**People Connection Graph view**
 
 ![Person profile with connections and recommendations](docs/screenshots/ui-profile.png)
 
-**Shortest path view**
+**Adding new Persion view**
 
 ![Shortest connection path between two people](docs/screenshots/ui-shortest-path.png)
