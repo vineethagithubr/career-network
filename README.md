@@ -208,7 +208,14 @@ shortest connection path between any two people.
       setup/run instructions and query explanations
 - [x] Hosted demo link — https://career-network-2.onrender.com/
 - [ ] Screen recording (add before submitting)
-- [ ] Screenshots of the UI (add before submitting)
+- [x] Screenshots of the UI
 
-![img.png](img.png)
-![img_1.png](img_1.png)
+## Screenshots
+
+**Directory / search view**
+
+![Directory view listing people, search and skill filter](docs/screenshots/ui-directory.png)
+
+**Person profile view**
+
+![Person profile with connections and recommendations](docs/screenshots/ui-profile.png)
