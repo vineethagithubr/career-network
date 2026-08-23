@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Network — Graph-Powered Professional Network</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="db-banner" class="db-banner hidden">
+    ⚠️ The graph database is unreachable right now. Some features may not work until it reconnects.
+  </div>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">◆</span>
+      <div>
+        <h1>Career Network</h1>
+        <p>A graph-powered map of people, skills and companies</p>
+      </div>
+    </div>
+    <div class="search-box">
+      <input id="search-input" type="text" placeholder="Search people by name or headline…" />
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Left column: search results / directory -->
+    <section class="panel people-panel">
+      <div class="panel-header">
+        <h2>People</h2>
+        <select id="skill-filter">
+          <option value="">Filter by skill…</option>
+        </select>
+      </div>
+      <button id="add-person-btn" class="secondary-btn add-person-btn">+ Add person</button>
+      <div id="people-list" class="card-list">
+        <div class="empty-state">Loading people…</div>
+      </div>
+    </section>
+
+    <!-- Middle column: selected profile -->
+    <section class="panel profile-panel">
+      <div id="profile-empty" class="empty-state big">
+        <p>👋 Select someone from the list to view their profile,<br/>connections and recommendations.</p>
+      </div>
+
+      <div id="profile-content" class="hidden">
+        <div class="profile-header">
+          <div class="avatar" id="profile-avatar">?</div>
+          <div class="profile-header-info">
+            <h2 id="profile-name">—</h2>
+            <p id="profile-headline" class="muted">—</p>
+            <p id="profile-meta" class="muted small">—</p>
+          </div>
+          <button id="delete-person-btn" class="tiny-btn danger">Delete</button>
+        </div>
+
+        <div class="chip-row" id="profile-skills"></div>
+
+        <h3>Direct connections <span id="connections-count" class="count-badge">0</span></h3>
+        <div id="connections-list" class="card-list compact"></div>
+
+        <h3>Connect with someone</h3>
+        <p class="muted small">Search anyone in the network and connect directly — not limited to suggestions.</p>
+        <div class="connect-search-box">
+          <input id="connect-search-input" type="text" placeholder="Search people by name…" autocomplete="off" />
+          <div id="connect-search-results" class="connect-search-results hidden"></div>
+        </div>
+
+        <h3>People you may know</h3>
+        <p class="muted small">Ranked by mutual connections and shared skills — a 2-hop graph traversal.</p>
+        <div id="suggestions-list" class="card-list compact"></div>
+      </div>
+    </section>
+
+    <!-- Right column: path finder -->
+    <section class="panel path-panel">
+      <h2>How are they connected?</h2>
+      <p class="muted small">Finds the shortest chain of connections between two people (variable-length graph traversal).</p>
+
+      <label class="field-label" for="path-from">From</label>
+      <select id="path-from"></select>
+
+      <label class="field-label" for="path-to">To</label>
+      <select id="path-to"></select>
+
+      <button id="path-find-btn" class="primary-btn">Find path</button>
+
+      <div id="path-result" class="path-result"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    Built for the WEXA AI take-home assignment — Career Network on CognoDB (openCypher over Bolt).
+  </footer>
+
+  <!-- Add person modal -->
+  <div id="add-person-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Add a person</h2>
+        <button id="close-modal-btn" class="tiny-btn">✕</button>
+      </div>
+      <form id="add-person-form">
+        <label class="field-label" for="ap-name">Name *</label>
+        <input id="ap-name" type="text" required placeholder="e.g. Priya Sharma" />
+
+        <label class="field-label" for="ap-headline">Headline</label>
+        <input id="ap-headline" type="text" placeholder="e.g. Backend Engineer" />
+
+        <label class="field-label" for="ap-company">Company</label>
+        <input id="ap-company" type="text" placeholder="e.g. Nimbus Cloud" />
+
+        <label class="field-label" for="ap-location">Location</label>
+        <input id="ap-location" type="text" placeholder="e.g. Austin, TX" />
+
+        <label class="field-label" for="ap-email">Email</label>
+        <input id="ap-email" type="email" placeholder="e.g. priya@example.com" />
+
+        <label class="field-label" for="ap-skills">Skills (comma-separated)</label>
+        <input id="ap-skills" type="text" placeholder="e.g. Java, Spring Boot, SQL" />
+
+        <div id="add-person-error" class="form-error hidden"></div>
+
+        <button type="submit" class="primary-btn">Add person</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
