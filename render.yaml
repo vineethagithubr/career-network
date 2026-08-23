@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: career-network
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: COGNODB_URI
+        sync: false
+      - key: COGNODB_USERNAME
+        sync: false
+      - key: COGNODB_PASSWORD
+        sync: false
+
