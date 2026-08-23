@@ -201,15 +201,6 @@ shortest connection path between any two people.
 - **Delete a person**: open their profile and click **Delete** — this removes
   the person and all of their relationships (connections, skills, employer).
 
-## Deliverables checklist
-
-- [x] Full source code, data-loading script (`seed.cypher`) and Cypher queries
-- [x] README with use case, "why a graph database?", data model diagram,
-      setup/run instructions and query explanations
-- [x] Hosted demo link — https://career-network-2.onrender.com/
-- [ ] Screen recording (add before submitting)
-- [x] Screenshots of the UI
-
 ## Screenshots
 
 **Directory / search view**
@@ -219,3 +210,7 @@ shortest connection path between any two people.
 **Person profile view**
 
 ![Person profile with connections and recommendations](docs/screenshots/ui-profile.png)
+
+**Shortest path view**
+
+![Shortest connection path between two people](docs/screenshots/ui-shortest-path.png)
