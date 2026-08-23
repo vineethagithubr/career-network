@@ -211,6 +211,6 @@ shortest connection path between any two people.
 
 ![Person profile with connections and recommendations](docs/screenshots/ui-profile.png)
 
-**Adding new Persion view**
+**Adding new Person view**
 
 ![Shortest connection path between two people](docs/screenshots/ui-shortest-path.png)
